@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-test
+spec:
+  selector:
+    matchLabels:
+      app: k8s-centos8-deployment
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: k8s-centos8-deployment
+    spec:
+      containers:
+      - name: k8s-test
+        image: manuphilip/k8s-example
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
