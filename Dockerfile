@@ -2,7 +2,7 @@ FROM centos
 MAINTAINER manu@exchangeonline.in
 RUN mkdir /opt/tomcat/
 WORKDIR /opt/tomcat
-RUN curl -O https://downloads.apache.org/tomcat/tomcat-8/v8.5.71/bin/apache-tomcat-8.5.71.tar.gz
+RUN curl -O https://archive.apache.org/dist/tomcat/tomcat-8///v8.5.71/bin/apache-tomcat-8.5.71.tar.gz
 RUN tar xvfz apache*.tar.gz
 RUN mv apache-tomcat-8.5.71/* /opt/tomcat/.
 RUN yum -y install java
